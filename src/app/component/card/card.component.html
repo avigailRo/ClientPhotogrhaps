@@ -1,0 +1,30 @@
+<mat-card [ngStyle]="{'text-align':'right'}"class="rounded-rectangle">
+    <p>מספר תמונה</p>
+    <mat-card class="text">
+        <mat-card-content>{{ card.collectionId }}</mat-card-content>
+      </mat-card>
+      <p>נתיב שמירת תמונה</p>
+      <mat-card class="text">
+        <mat-card-content>{{ card.savePath }}</mat-card-content>
+      </mat-card>
+    <p *ngIf="checkboxValue">נתיב שמירת גב התמונה</p>
+    <mat-card class="text"*ngIf="checkboxValue">
+        <mat-card-content>{{ card.saveBackPath }}</mat-card-content>
+      </mat-card>
+
+    <label>
+    גב תמונה
+      <input type="checkbox" [(ngModel)]="checkboxValue" (ngModelChange)="onCheckboxChange($event)">
+    </label>
+    <button [ngStyle]="{'position':'absolute','top':'0px','left':'5px'}"*ngIf="last&&!card.saveBoolean" (click)="deleteTab()"mat-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <div [ngStyle]="{'position':'absolute','top':'0px','left':'5px'}" *ngIf="card.saveBoolean">
+        <span class="circle">
+          <mat-icon aria-label="Green circle with white arrow inside" color="green">arrow_forward</mat-icon>
+        </span>
+        <span class="caption">התווסף בהצלחה</span>
+      </div>
+</mat-card>
+
+

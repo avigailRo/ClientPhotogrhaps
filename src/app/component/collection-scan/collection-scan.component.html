@@ -1,0 +1,41 @@
+<div class="image">
+  <img src="assets/images/logo.jpg" alt="Your Image">
+</div>
+<mat-card class="rounded-rectangle">
+  <p class="collectionScan">סריקת מסמך</p>
+
+  <div [ngStyle]="{'position':'absolute','right':'100px','top':'100px'}">
+  <p [ngStyle]="{'text-align':'right'}">מספר אוסף</p>
+  <div class="location">
+<div class="button-location">
+  <div class="custom-button">
+    <button (click)="sendText()" mat-icon-button color="primary" [disabled]="!textInput">
+      <mat-icon [ngStyle]="{'color':'white'}">keyboard_arrow_left</mat-icon>
+    </button>
+    <span>הבא</span>
+  </div>
+  
+  <mat-form-field class="custom-input" >
+    <input class="custom-input" matInput [(ngModel)]="textInput" name="textInput" required>
+  </mat-form-field>
+</div>
+  
+  <p [ngStyle]="{'text-align':'right'}" *ngIf="bolleanSendText">שם אוסף </p>
+  <mat-card *ngIf="bolleanSendText" class="text">
+    <mat-card-content>{{collectionDetails.title}}</mat-card-content>
+  </mat-card><br>
+    <div class="cards" *ngFor="let card of cards; let last = last">
+      <!-- Display image details -->
+      <app-card [card]="card"[last]="last"(deleteCard)="deleteTab()"></app-card><br>
+    </div>
+ 
+  <h1 [ngStyle]="{'text-align':'right','color':'blue','font-size':'16px'}" *ngIf="bolleanSendText" (click)="addImage()">צרף תמונה נוספת</h1>
+
+  <div *ngIf="cardsForsave"class="custom-button">
+    <button (click)="save()" mat-icon-button color="primary" [disabled]="!textInput">
+      <mat-icon [ngStyle]="{'color':'white'}">keyboard_arrow_left</mat-icon>
+    </button>
+    <span>שמירה</span>
+  </div>
+</div>
+</div>

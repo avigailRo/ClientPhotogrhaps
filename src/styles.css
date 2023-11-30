@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;     
+    background-image: url('C:\Users\User\Desktop\yad_vashem\src\app\assets\images\background.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
